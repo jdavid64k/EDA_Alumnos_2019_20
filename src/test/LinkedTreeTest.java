@@ -220,10 +220,25 @@ class LinkedTreeTest {
     }
 
     @org.junit.jupiter.api.Test
-    void moveSubtreeExcept() {
+    void moveSubtreeExcept_Root() {
         RuntimeException thrown = assertThrows(RuntimeException.class,
                 () -> tree.moveSubtree(pos[0], pos[8]));
         assertEquals("Root node can't be moved", thrown.getMessage());
     }
+
+    @org.junit.jupiter.api.Test
+    void moveSubtreeExcept_Subtree() {
+        RuntimeException thrown = assertThrows(RuntimeException.class,
+                () -> tree.moveSubtree(pos[2], pos[10]));
+        assertEquals("Target position can't be a sub tree of origin", thrown.getMessage());
+    }
+
+    @org.junit.jupiter.api.Test
+    void moveSubtreeExcept_Subtree_SamePositions() {
+        RuntimeException thrown = assertThrows(RuntimeException.class,
+                () -> tree.moveSubtree(pos[4], pos[4]));
+        assertEquals("Both positions are the same", thrown.getMessage());
+    }
+
 
 }
