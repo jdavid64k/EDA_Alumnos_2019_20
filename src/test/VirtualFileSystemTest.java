@@ -250,16 +250,16 @@ class VirtualFileSystemTest {
     void getFilePath() {
         String output, expected;
         output = vfs.getFilePath(0);
-        expected = "practica2/DirectorioRaiz";
+        expected = "./Resources/practica2/DirectorioRaiz";
         assertEquals(expected, output);
 
         output = vfs.getFilePath(3);
-        expected = "practica2/DirectorioRaiz/SubdirectorioA/ArchivoB.ext";
+        expected = "./Resources/practica2/DirectorioRaiz/SubdirectorioA/ArchivoB.ext";
         assertEquals(expected, output);
 
         vfs.loadFileSystem(path2);
         output = vfs.getFilePath(0);
-        expected = "practica2/DirectorioRaiz/SubdirectorioA";
+        expected = "./Resources/practica2/DirectorioRaiz/SubdirectorioA";
         assertEquals(expected, output);
 
     }
